@@ -20,7 +20,6 @@ public class CarDAO {
         manager.getTransaction().commit();
     }
 
-
     public void close() {
         manager.close();
         factory.close();

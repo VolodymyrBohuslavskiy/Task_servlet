@@ -1,22 +1,27 @@
 package dao;
-import model.Owner;
+
+import model.Car;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.List;
 
-public class OwnerDAO {
+public class addDAO {
     private EntityManagerFactory factory = Persistence.createEntityManagerFactory("connect");
     private EntityManager manager = factory.createEntityManager();
 
-    public List findAllOwners() {
-    return manager.createQuery("select ow from Owner ow",Owner.class).getResultList();
-    }
 
-    public void save(Owner owner) {
+
+
+
+
+
+
+
+    public void save(Car car) {
         manager.getTransaction().begin();
-        manager.persist(owner);
+        manager.persist(car);
         manager.getTransaction().commit();
     }
 
@@ -25,6 +30,4 @@ public class OwnerDAO {
         manager.close();
         factory.close();
     }
-
-
 }

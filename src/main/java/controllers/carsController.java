@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+
 @WebServlet(value = "/cars")
 
 public class carsController extends HttpServlet {
@@ -25,8 +27,14 @@ public class carsController extends HttpServlet {
         String model = req.getParameter("model");
         req.setAttribute("model", model);
 
-        if (brand!=null && model!=null) carDAO.save(new Car(brand, model));
+
+        Car newcar = new Car(brand, model);
+
+        if (brand != null && model != null)
+            carDAO.save(newcar);
+
 
         req.getRequestDispatcher("/cars.jsp").forward(req, resp);
     }
 }
+
